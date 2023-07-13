@@ -1,0 +1,585 @@
+# %ECSV 1.0
+# ---
+# delimiter: ','
+# meta: !!omap
+# - RELEASE: Gaia DR3
+# - TABLE: vari_cepheid
+# - DESCRIPTION: >
+#     This table describes the Cepheid stars.
+# - CITATION: >
+#     How to cite and acknowledge Gaia: 
+#     https://gea.esac.esa.int/archive/documentation/credits.html 
+# - KNOWN_ISSUES: >
+#     Known issues: 
+#     https://www.cosmos.esa.int/web/gaia-users/known-issues 
+# - DOCUMENTATION: >
+#     Tutorials and documentation: 
+#     https://www.cosmos.esa.int/web/gaia-users/archive 
+# datatype:
+# - 
+#   name: solution_id
+#   datatype: int64
+#   description: Solution Identifier
+#   meta:
+#     ucd: meta.version
+# - 
+#   name: source_id
+#   datatype: int64
+#   description: Unique source identifier
+#   meta:
+#     ucd: meta.id;meta.main
+# - 
+#   name: pf
+#   datatype: float64
+#   unit: d
+#   description: Period corresponding to the fundamental pulsation mode in the G band time series
+#   meta:
+#     ucd: src.var;time.period
+# - 
+#   name: pf_error
+#   datatype: float32
+#   unit: d
+#   description: "Uncertainty of the \\texttt{pf} period"
+#   meta:
+#     ucd: stat.error;time.period
+# - 
+#   name: p1_o
+#   datatype: float64
+#   unit: d
+#   description: Period corresponding to the first overtone pulsation mode in the G band time series
+#   meta:
+#     ucd: src.var;time.period
+# - 
+#   name: p1_o_error
+#   datatype: float32
+#   unit: d
+#   description: "Uncertainty of the \\texttt{p1O} period"
+#   meta:
+#     ucd: stat.error;time.period
+# - 
+#   name: epoch_g
+#   datatype: float64
+#   unit: d
+#   description: Epoch of the maximum of the light curve in the G band
+#   meta:
+#     ucd: time.epoch;stat.max
+# - 
+#   name: epoch_g_error
+#   datatype: float32
+#   unit: d
+#   description: "Uncertainty on the epoch parameter \\texttt{epochG}"
+#   meta:
+#     ucd: stat.error;time.epoch
+# - 
+#   name: epoch_bp
+#   datatype: float64
+#   unit: d
+#   description: Epoch of the maximum of the light curve in the BP band
+#   meta:
+#     ucd: time.epoch;stat.max
+# - 
+#   name: epoch_bp_error
+#   datatype: float32
+#   unit: d
+#   description: "Uncertainty on the epoch parameter \\texttt{epochBp}"
+#   meta:
+#     ucd: stat.error;time.epoch
+# - 
+#   name: epoch_rp
+#   datatype: float64
+#   unit: d
+#   description: Epoch of the maximum of the light curve in the RP band
+#   meta:
+#     ucd: time.epoch;stat.max
+# - 
+#   name: epoch_rp_error
+#   datatype: float32
+#   unit: d
+#   description: "Uncertainty on the epoch parameter \\texttt{epochRp}"
+#   meta:
+#     ucd: stat.error;time.epoch
+# - 
+#   name: epoch_rv
+#   datatype: float64
+#   unit: d
+#   description: Epoch of the minimum of the radial velocity curve
+#   meta:
+#     ucd: time.epoch;stat.max
+# - 
+#   name: epoch_rv_error
+#   datatype: float32
+#   unit: d
+#   description: "Uncertainty on the epoch parameter \\texttt{epochRv}"
+#   meta:
+#     ucd: stat.error;time.epoch
+# - 
+#   name: int_average_g
+#   datatype: float32
+#   unit: mag
+#   description: Intensity-averaged magnitude in the G band
+#   meta:
+#     ucd: phot.mag;em.opt
+# - 
+#   name: int_average_g_error
+#   datatype: float32
+#   unit: mag
+#   description: "Uncertainty on \\texttt{intAverageG} parameter"
+#   meta:
+#     ucd: stat.error;phot.mag;em.opt
+# - 
+#   name: int_average_bp
+#   datatype: float32
+#   unit: mag
+#   description: Intensity-averaged magnitude in the BP band
+#   meta:
+#     ucd: stat.error;phot.mag
+# - 
+#   name: int_average_bp_error
+#   datatype: float32
+#   unit: mag
+#   description: "Uncertainty on \\texttt{intAverageBp} parameter"
+#   meta:
+#     ucd: stat.error;phot.mag
+# - 
+#   name: int_average_rp
+#   datatype: float32
+#   unit: mag
+#   description: Intensity-averaged magnitude in the RP band
+#   meta:
+#     ucd: stat.error;phot.mag
+# - 
+#   name: int_average_rp_error
+#   datatype: float32
+#   unit: mag
+#   description: "Uncertainty on \\texttt{intAverageRp} parameter"
+#   meta:
+#     ucd: stat.error;phot.mag
+# - 
+#   name: average_rv
+#   datatype: float32
+#   unit: km.s**-1
+#   description: Mean radial velocity
+#   meta:
+#     ucd: spect.dopplerVeloc;stat.mean
+# - 
+#   name: average_rv_error
+#   datatype: float32
+#   unit: km.s**-1
+#   description: "Uncertainty on \\texttt{averageRv} parameter"
+#   meta:
+#     ucd: stat.error;spect.dopplerVeloc;stat.mean
+# - 
+#   name: peak_to_peak_g
+#   datatype: float32
+#   unit: mag
+#   description: Peak-to-peak amplitude of the G band light curve
+#   meta:
+#     ucd: src.var.amplitude;em.opt
+# - 
+#   name: peak_to_peak_g_error
+#   datatype: float32
+#   unit: mag
+#   description: "Uncertainty on the \\texttt{peakToPeakG} parameter"
+#   meta:
+#     ucd: stat.error;src.var.amplitude;em.opt
+# - 
+#   name: peak_to_peak_bp
+#   datatype: float32
+#   unit: mag
+#   description: Peak-to-peak amplitude of the BP band light curve
+#   meta:
+#     ucd: src.var.amplitude
+# - 
+#   name: peak_to_peak_bp_error
+#   datatype: float32
+#   unit: mag
+#   description: "Uncertainty on the \\texttt{peakToPeakBp} parameter"
+#   meta:
+#     ucd: stat.error;src.var.amplitude
+# - 
+#   name: peak_to_peak_rp
+#   datatype: float32
+#   unit: mag
+#   description: Peak-to-peak amplitude of the RP band light curve
+#   meta:
+#     ucd: src.var.amplitude
+# - 
+#   name: peak_to_peak_rp_error
+#   datatype: float32
+#   unit: mag
+#   description: "Uncertainty on the \\texttt{peakToPeakRp} parameter"
+#   meta:
+#     ucd: stat.error;src.var.amplitude
+# - 
+#   name: peak_to_peak_rv
+#   datatype: float64
+#   unit: km.s**-1
+#   description: Peak-to-peak amplitude of the radial velocity curve
+#   meta:
+#     ucd: spect.dopplerVeloc;stat.param
+# - 
+#   name: peak_to_peak_rv_error
+#   datatype: float64
+#   unit: km.s**-1
+#   description: "Uncertainty on the \\texttt{peakToPeakRv} parameter"
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: metallicity
+#   datatype: float32
+#   unit: "'dex'"
+#   description: Metallicity of the star from the Fourier parameters of the light curve
+#   meta:
+#     ucd: phys.abund.Z
+# - 
+#   name: metallicity_error
+#   datatype: float32
+#   unit: "'dex'"
+#   description: "Uncertainty of the \\texttt{metallicity} parameter"
+#   meta:
+#     ucd: stat.error;phys.abund.Z
+# - 
+#   name: r21_g
+#   datatype: float32
+#   description: "Fourier decomposition parameter \\texttt{r21G}: A2/A1 (for G band)"
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: r21_g_error
+#   datatype: float32
+#   description: "Uncertainty on the \\texttt{r21G} parameter: A2/A1 (for G band)"
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: r31_g
+#   datatype: float32
+#   description: "Fourier decomposition parameter \\texttt{r31G}: A3/A1 (for G band)"
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: r31_g_error
+#   datatype: float32
+#   description: "Uncertainty on the \\texttt{r31G} parameter: A3/A1 (for G band)"
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: phi21_g
+#   datatype: float32
+#   unit: rad
+#   description: "Fourier decomposition parameter \\texttt{phi21G}: phi2 - 2*phi1 (for G band)"
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: phi21_g_error
+#   datatype: float32
+#   unit: rad
+#   description: "Uncertainty on the \\texttt{phi21G} parameter: phi2 - 2*phi1 (for G band)"
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: phi31_g
+#   datatype: float32
+#   unit: rad
+#   description: "Fourier decomposition parameter \\texttt{phi31G}: phi3 - 3*phi1 (for G band)"
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: phi31_g_error
+#   datatype: float32
+#   unit: rad
+#   description: "Uncertainty on the \\texttt{phi31G} parameter: phi3 - 3*phi1 (for G band)"
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: num_clean_epochs_g
+#   datatype: int16
+#   description: Number of G FoV epochs used in the fitting algorithm
+#   meta:
+#     ucd: meta.number
+# - 
+#   name: num_clean_epochs_bp
+#   datatype: int16
+#   description: Number of BP epochs used in the fitting algorithm
+#   meta:
+#     ucd: meta.number
+# - 
+#   name: num_clean_epochs_rp
+#   datatype: int16
+#   description: Number of RP epochs used in the fitting algorithm
+#   meta:
+#     ucd: meta.number
+# - 
+#   name: num_clean_epochs_rv
+#   datatype: int16
+#   description: Number of radial velocity epochs used in the fitting algorithm
+#   meta:
+#     ucd: meta.number
+# - 
+#   name: zp_mag_g
+#   datatype: float32
+#   unit: mag
+#   description: Zero point (mag) of the final model of the G band light curve
+#   meta:
+#     ucd: phot.calib;em.opt
+# - 
+#   name: zp_mag_bp
+#   datatype: float32
+#   unit: mag
+#   description: Zero point (mag) of the final model of the BP band light curve
+#   meta:
+#     ucd: phot.calib;em.opt.B
+# - 
+#   name: zp_mag_rp
+#   datatype: float32
+#   unit: mag
+#   description: Zero point (mag) of the final model of the RP band light curve
+#   meta:
+#     ucd: phot.calib;em.opt.R
+# - 
+#   name: num_harmonics_for_p1_g
+#   datatype: int8
+#   description: Number of harmonics used to model the first periodicity of the G-band light curve
+#   meta:
+#     ucd: meta.number
+# - 
+#   name: num_harmonics_for_p1_bp
+#   datatype: int8
+#   description: Number of harmonics used to model the first periodicity of the BP-band light curve
+#   meta:
+#     ucd: meta.number
+# - 
+#   name: num_harmonics_for_p1_rp
+#   datatype: int8
+#   description: Number of harmonics used to model the first periodicity of the RP-band light curve
+#   meta:
+#     ucd: meta.number
+# - 
+#   name: num_harmonics_for_p1_rv
+#   datatype: int8
+#   description: Number of harmonics used to model the first periodicity of the radial velocity curve
+#   meta:
+#     ucd: meta.number
+# - 
+#   name: reference_time_g
+#   datatype: float64
+#   unit: d
+#   description: Reference time of the Fourier modelled G-band light curve
+#   meta:
+#     ucd: time.epoch
+# - 
+#   name: reference_time_bp
+#   datatype: float64
+#   unit: d
+#   description: Reference time of the Fourier modelled BP-band light curve
+#   meta:
+#     ucd: time.epoch
+# - 
+#   name: reference_time_rp
+#   datatype: float64
+#   unit: d
+#   description: Reference time of the Fourier modelled RP-band light curve
+#   meta:
+#     ucd: time.epoch
+# - 
+#   name: reference_time_rv
+#   datatype: float64
+#   unit: d
+#   description: Reference time of the Fourier modelled radial velocity curve
+#   meta:
+#     ucd: time.epoch
+# - 
+#   name: fund_freq1
+#   datatype: float64
+#   unit: d**-1
+#   description: First frequency of the non-linear Fourier modelling
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: fund_freq1_error
+#   datatype: float32
+#   unit: d**-1
+#   description: Error of the first frequency of the non-linear Fourier modelling
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: fund_freq2
+#   datatype: float64
+#   unit: d**-1
+#   description: Second frequency of the non-linear Fourier modelling in the G band
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: fund_freq2_error
+#   datatype: float32
+#   unit: d**-1
+#   description: Error of the second frequency of the non-linear Fourier modelling in the G band
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: fund_freq1_harmonic_ampl_g
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: mag
+#   description: Amplitudes of the Fourier model for the first frequency in the G band
+#   meta:
+#     ucd: src.var.amplitude
+# - 
+#   name: fund_freq1_harmonic_ampl_g_error
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: mag
+#   description: Errors of the amplitudes of the Fourier model for the first frequency in the G band
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: fund_freq1_harmonic_phase_g
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: rad
+#   description: Phases of the Fourier model for the first frequency in the G band
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: fund_freq1_harmonic_phase_g_error
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: rad
+#   description: Errors of the phases of the Fourier model for the first frequency in the G band
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: fund_freq1_harmonic_ampl_bp
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: mag
+#   description: Amplitudes of the Fourier model for the first frequency in the BP band
+#   meta:
+#     ucd: src.var.amplitude
+# - 
+#   name: fund_freq1_harmonic_ampl_bp_error
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: mag
+#   description: Errors of the amplitudes of the Fourier model for the first frequency in the BP band
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: fund_freq1_harmonic_phase_bp
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: rad
+#   description: Phases of the Fourier model for the first frequency in the BP band
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: fund_freq1_harmonic_phase_bp_error
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: rad
+#   description: Errors of the phases of the Fourier model for the first frequency in the BP band
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: fund_freq1_harmonic_ampl_rp
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: mag
+#   description: Amplitudes of the Fourier model for the first frequency in the RP band
+#   meta:
+#     ucd: src.var.amplitude
+# - 
+#   name: fund_freq1_harmonic_ampl_rp_error
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: mag
+#   description: Errors of the amplitudes of the Fourier model for the first frequency in the RP band
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: fund_freq1_harmonic_phase_rp
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: rad
+#   description: Phases of the Fourier model for the first frequency in the RP band
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: fund_freq1_harmonic_phase_rp_error
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: rad
+#   description: Errors of the phases of the Fourier model for the first frequency in the RP band
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: fund_freq1_harmonic_ampl_rv
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: km.s**-1
+#   description: Amplitudes of the Fourier model for the first frequency of the radial velocity curve
+#   meta:
+#     ucd: src.var.amplitude
+# - 
+#   name: fund_freq1_harmonic_ampl_rv_error
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: km.s**-1
+#   description: Errors of the amplitudes of the Fourier model for the first frequency of the radial velocity curve
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: fund_freq1_harmonic_phase_rv
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: rad
+#   description: Phases of the Fourier model for the first frequency of the radial velocity curve
+#   meta:
+#     ucd: stat.Fourier
+# - 
+#   name: fund_freq1_harmonic_phase_rv_error
+#   datatype: string 
+#   subtype: 'float32[null]' 
+#   unit: rad
+#   description: Errors of the phases of the Fourier model for the first frequency of the radial velocity curve
+#   meta:
+#     ucd: stat.error
+# - 
+#   name: p2_o
+#   datatype: float64
+#   unit: d
+#   description: Period corresponding to the second overtone pulsation mode (for multi mode pulsators) in  the G band time series
+#   meta:
+#     ucd: src.var;time.period
+# - 
+#   name: p2_o_error
+#   datatype: float32
+#   unit: d
+#   description: Uncertainty of the p2O period
+#   meta:
+#     ucd: stat.error;time.period
+# - 
+#   name: type_best_classification
+#   datatype: string
+#   description: "Best type classification estimate out of: `DCEP', `T2CEP', `ACEP'"
+#   meta:
+#     ucd: meta.code.class;src.class
+# - 
+#   name: type2_best_sub_classification
+#   datatype: string
+#   description: "Best subclassification estimate for typeBestClassification=`T2CEP' out of: `BL_HER', `W_VIR',`RV_TAU'"
+#   meta:
+#     ucd: meta.code.class;src.class
+# - 
+#   name: mode_best_classification
+#   datatype: string
+#   description: "Best mode classification estimate   out of: `FUNDAMENTAL', `FIRST_OVERTONE', `SECOND_OVERTONE', `MULTI',`UNDEFINED', `NOT_APPLICABLE'"
+#   meta:
+#     ucd: meta.code.class;src.class
+# - 
+#   name: multi_mode_best_classification
+#   datatype: string
+#   description: "Best multi mode DCEP classification out of: `F/1O', `F/2O', `1O/2O', `1O/3O', `2O/3O', `F/1O/2O', `1O/2O/3O'"
+#   meta:
+#     ucd: meta.code.class;src.class
+solution_id,source_id,pf,pf_error,p1_o,p1_o_error,epoch_g,epoch_g_error,epoch_bp,epoch_bp_error,epoch_rp,epoch_rp_error,epoch_rv,epoch_rv_error,int_average_g,int_average_g_error,int_average_bp,int_average_bp_error,int_average_rp,int_average_rp_error,average_rv,average_rv_error,peak_to_peak_g,peak_to_peak_g_error,peak_to_peak_bp,peak_to_peak_bp_error,peak_to_peak_rp,peak_to_peak_rp_error,peak_to_peak_rv,peak_to_peak_rv_error,metallicity,metallicity_error,r21_g,r21_g_error,r31_g,r31_g_error,phi21_g,phi21_g_error,phi31_g,phi31_g_error,num_clean_epochs_g,num_clean_epochs_bp,num_clean_epochs_rp,num_clean_epochs_rv,zp_mag_g,zp_mag_bp,zp_mag_rp,num_harmonics_for_p1_g,num_harmonics_for_p1_bp,num_harmonics_for_p1_rp,num_harmonics_for_p1_rv,reference_time_g,reference_time_bp,reference_time_rp,reference_time_rv,fund_freq1,fund_freq1_error,fund_freq2,fund_freq2_error,fund_freq1_harmonic_ampl_g,fund_freq1_harmonic_ampl_g_error,fund_freq1_harmonic_phase_g,fund_freq1_harmonic_phase_g_error,fund_freq1_harmonic_ampl_bp,fund_freq1_harmonic_ampl_bp_error,fund_freq1_harmonic_phase_bp,fund_freq1_harmonic_phase_bp_error,fund_freq1_harmonic_ampl_rp,fund_freq1_harmonic_ampl_rp_error,fund_freq1_harmonic_phase_rp,fund_freq1_harmonic_phase_rp_error,fund_freq1_harmonic_ampl_rv,fund_freq1_harmonic_ampl_rv_error,fund_freq1_harmonic_phase_rv,fund_freq1_harmonic_phase_rv_error,p2_o,p2_o_error,type_best_classification,type2_best_sub_classification,mode_best_classification,multi_mode_best_classification
+375316653866487564,61259706956316800,14.653433151553722,0.0037386583,null,null,1674.0511667079684,0.005287261,1673.7729011550755,0.009827486,1673.2305661188072,0.040980633,null,null,16.111423,0.0066980775,16.698946,0.02487691,15.325538,0.014622351,null,null,0.5685931,0.014227079,0.8147773,0.12154353,0.5362733,0.029429872,null,null,null,null,0.18626422,0.039935026,null,null,1.2341752,0.19321807,null,null,34,40,40,null,16.127876,16.734724,15.341328,2,2,1,null,1708.179012517937,1708.179327346666,1708.1794141261767,null,0.06824339318011416,1.7411532E-5,null,null,"[0.269121,0.05012761,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]","[0.006905603,0.011734768,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]","[5.562707,6.0764036,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]","[0.04603541,0.15038626,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]","[0.3783801,0.10159586,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]","[0.042098317,0.03764033,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]","[5.528861,0.9163278,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]","[0.096544005,0.29547232,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]","[0.26813665,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]","[0.014652413,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]","[5.5353923,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]","[0.15015556,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]",null,null,null,null,null,null,"DCEP",null,"FUNDAMENTAL",null
